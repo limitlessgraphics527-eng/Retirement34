@@ -1,0 +1,1852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Retirement Airways ✈️</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+html{
+    min-height:100%;
+}
+
+body{
+
+    font-family:'Segoe UI',Arial,sans-serif;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    background:
+    linear-gradient(
+        rgba(5,12,28,.82),
+        rgba(5,12,28,.94)
+    ),
+    url("plane-bg.jpg")
+    center/cover
+    no-repeat
+    fixed;
+
+    color:white;
+}
+
+
+/* =========================
+   FLOATING CLOUDS
+========================= */
+
+.cloud{
+
+    position:fixed;
+
+    font-size:30px;
+
+    opacity:.7;
+
+    pointer-events:none;
+
+    z-index:1;
+
+    animation:cloudMove linear infinite;
+}
+
+
+@keyframes cloudMove{
+
+    0%{
+        transform:translateX(-20vw);
+    }
+
+    100%{
+        transform:translateX(120vw);
+        opacity:0;
+    }
+
+}
+
+
+/* =========================
+   FLYING PLANES
+========================= */
+
+.plane{
+
+    position:fixed;
+
+    font-size:28px;
+
+    pointer-events:none;
+
+    z-index:1;
+
+    animation:flyPlane linear infinite;
+
+    opacity:.9;
+}
+
+
+@keyframes flyPlane{
+
+    0%{
+        transform:
+        translate(-20vw,20vh)
+        rotate(10deg);
+    }
+
+    100%{
+        transform:
+        translate(120vw,-50vh)
+        rotate(10deg);
+
+        opacity:0;
+    }
+
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:flex-start;
+
+    justify-content:center;
+
+    padding:25px 15px 50px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+/* =========================
+   BOARDING PASS
+========================= */
+
+.boarding-pass{
+
+    width:100%;
+
+    max-width:450px;
+
+    background:#f8f0dc;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 0 30px rgba(255,255,255,.2),
+    0 0 80px rgba(0,0,0,.5);
+
+    color:#111;
+
+    position:relative;
+
+}
+
+
+/* Ticket cut-outs */
+
+.boarding-pass::before,
+.boarding-pass::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:35px;
+
+    height:35px;
+
+    background:#071022;
+
+    border-radius:50%;
+
+    top:52%;
+
+    transform:translateY(-50%);
+
+    z-index:3;
+
+}
+
+
+.boarding-pass::before{
+    left:-18px;
+}
+
+
+.boarding-pass::after{
+    right:-18px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.ticket-top{
+
+    background:
+    linear-gradient(
+        135deg,
+        #081a3a,
+        #123f73
+    );
+
+    padding:25px 20px;
+
+    text-align:center;
+
+    color:white;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+.ticket-top::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    background:
+    rgba(212,175,55,.10);
+
+    border-radius:50%;
+
+    top:-150px;
+
+    right:-60px;
+
+}
+
+
+.ticket-top h1{
+
+    font-size:29px;
+
+    letter-spacing:2px;
+
+    line-height:1.15;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.airline{
+
+    margin-top:8px;
+
+    font-size:15px;
+
+    opacity:.95;
+
+    letter-spacing:3px;
+
+    color:#f7d774;
+
+    font-weight:bold;
+
+}
+
+
+.years{
+
+    margin-top:12px;
+
+    display:inline-block;
+
+    padding:7px 15px;
+
+    border:1px solid
+    rgba(255,255,255,.4);
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    letter-spacing:1px;
+
+    background:
+    rgba(255,255,255,.08);
+
+}
+
+
+/* =========================
+   TICKET BODY
+========================= */
+
+.ticket-body{
+
+    padding:25px;
+
+}
+
+
+/* =========================
+   ROUTE
+========================= */
+
+.route{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:23px;
+
+}
+
+
+.city{
+
+    font-size:27px;
+
+    font-weight:bold;
+
+    color:#0b2347;
+
+    text-align:center;
+
+}
+
+
+.city small{
+
+    display:block;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+
+    color:#777;
+
+    margin-top:3px;
+
+}
+
+
+.planeIcon{
+
+    font-size:30px;
+
+    color:#d4af37;
+
+    animation:bounce 2s infinite;
+
+}
+
+
+@keyframes bounce{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-6px);
+    }
+
+}
+
+
+/* =========================
+   INFORMATION
+========================= */
+
+.label{
+
+    font-size:10px;
+
+    font-weight:bold;
+
+    letter-spacing:1.5px;
+
+    color:#777;
+
+    margin-top:12px;
+
+}
+
+
+.value{
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    padding-bottom:7px;
+
+    border-bottom:1px dashed #aaa;
+
+    color:#111;
+
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-top:15px;
+
+    border:none;
+
+    border-radius:16px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+button:hover{
+
+    transform:scale(1.02);
+
+}
+
+
+.boardBtn{
+
+    background:#0b2347;
+
+    color:white;
+
+}
+
+
+.unlockBtn{
+
+    background:#d4af37;
+
+    color:#111;
+
+}
+
+
+/* =========================
+   HINT
+========================= */
+
+.tapHint{
+
+    margin-top:9px;
+
+    font-size:12px;
+
+    color:#0b2347;
+
+    font-weight:bold;
+
+    text-align:center;
+
+    animation:pulseText 1.8s infinite;
+
+}
+
+
+@keyframes pulseText{
+
+    0%,100%{
+
+        opacity:.55;
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:scale(1.03);
+
+    }
+
+}
+
+
+/* =========================
+   PASSWORD
+========================= */
+
+#unlockSection{
+
+    display:none;
+
+    margin-top:8px;
+
+    animation:fadeIn .7s ease forwards;
+
+}
+
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+input{
+
+    width:100%;
+
+    padding:13px;
+
+    border-radius:14px;
+
+    border:2px solid #0b2347;
+
+    margin-top:8px;
+
+    font-size:16px;
+
+    outline:none;
+
+}
+
+
+input:focus{
+
+    border-color:#d4af37;
+
+    box-shadow:
+    0 0 10px
+    rgba(212,175,55,.3);
+
+}
+
+
+#error{
+
+    margin-top:9px;
+
+    font-weight:bold;
+
+    color:#c62828;
+
+    text-align:center;
+
+}
+
+
+/* =========================
+   BARCODE
+========================= */
+
+.barcode{
+
+    margin-top:20px;
+
+    height:48px;
+
+    border-radius:8px;
+
+    background:
+    repeating-linear-gradient(
+        90deg,
+        #111 0 3px,
+        transparent 3px 7px,
+        #111 7px 10px,
+        transparent 10px 14px
+    );
+
+}
+
+
+.barcodeText{
+
+    text-align:center;
+
+    font-size:8px;
+
+    letter-spacing:3px;
+
+    color:#555;
+
+    margin-top:5px;
+
+}
+
+
+/* =========================
+   SURPRISE SCREEN
+========================= */
+
+.contentBox{
+
+    display:none;
+
+    max-width:470px;
+
+    width:100%;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(7,20,45,.98),
+        rgba(13,36,68,.98)
+    );
+
+    border:1px solid #d4af37;
+
+    padding:28px 24px;
+
+    border-radius:28px;
+
+    text-align:center;
+
+    box-shadow:
+    0 0 35px
+    rgba(212,175,55,.25);
+
+    position:relative;
+
+    overflow:hidden;
+
+    animation:surpriseIn .8s ease forwards;
+
+}
+
+
+@keyframes surpriseIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        scale(.94)
+        translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        scale(1)
+        translateY(0);
+
+    }
+
+}
+
+
+.contentBox h1{
+
+    color:#f7d774;
+
+    font-size:30px;
+
+    line-height:1.2;
+
+}
+
+
+.contentBox h2{
+
+    margin-top:10px;
+
+    color:white;
+
+    font-size:20px;
+
+}
+
+
+.contentBox p{
+
+    margin-top:12px;
+
+    opacity:.9;
+
+    line-height:1.6;
+
+}
+
+
+/* =========================
+   RETIRED STAMP
+========================= */
+
+.retiredStamp{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    padding:8px 18px;
+
+    border:2px solid #d4af37;
+
+    color:#f7d774;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    transform:rotate(-3deg);
+
+}
+
+
+/* =========================
+   PHOTO
+========================= */
+
+.surprisePhoto{
+
+    width:100%;
+
+    max-height:430px;
+
+    object-fit:cover;
+
+    display:block;
+
+    margin-top:20px;
+
+    border-radius:18px;
+
+    border:2px solid #d4af37;
+
+    box-shadow:
+    0 8px 25px
+    rgba(0,0,0,.35);
+
+}
+
+
+/* =========================
+   VOICE MESSAGE
+========================= */
+
+.voiceMessage{
+
+    margin-top:20px;
+
+    padding:14px;
+
+    border-radius:16px;
+
+    background:
+    rgba(255,255,255,.07);
+
+    border:1px solid
+    rgba(212,175,55,.45);
+
+}
+
+
+.voiceTitle{
+
+    font-size:13px;
+
+    color:#f7d774;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+    margin-bottom:8px;
+
+}
+
+
+audio{
+
+    width:100%;
+
+}
+
+
+/* =========================
+   GLOW
+========================= */
+
+.glow{
+
+    position:absolute;
+
+    width:240px;
+
+    height:240px;
+
+    background:
+    rgba(212,175,55,.12);
+
+    border-radius:50%;
+
+    filter:blur(50px);
+
+    animation:glowPulse 3s infinite;
+
+    z-index:-1;
+
+    top:-50px;
+
+    right:-50px;
+
+}
+
+
+@keyframes glowPulse{
+
+    0%,100%{
+
+        transform:scale(1);
+
+        opacity:.5;
+
+    }
+
+    50%{
+
+        transform:scale(1.2);
+
+        opacity:.9;
+
+    }
+
+}
+
+
+/* =========================
+   BRAND
+========================= */
+
+.brand{
+
+    margin-top:18px;
+
+    font-size:13px;
+
+    color:#ccc;
+
+}
+
+
+.brand span{
+
+    color:#f7d774;
+
+    font-weight:bold;
+
+}
+
+
+/* =================================================
+   PHONE OPTIMIZATION
+================================================= */
+
+@media(max-width:500px){
+
+    body{
+
+        overflow-x:hidden;
+
+        overflow-y:auto;
+
+        background-attachment:scroll;
+
+    }
+
+
+    .container{
+
+        min-height:auto;
+
+        padding:
+        12px
+        9px
+        35px;
+
+        align-items:flex-start;
+
+    }
+
+
+    .boarding-pass{
+
+        max-width:100%;
+
+        border-radius:22px;
+
+    }
+
+
+    /* HEADER */
+
+    .ticket-top{
+
+        padding:18px 14px;
+
+    }
+
+
+    .ticket-top h1{
+
+        font-size:24px;
+
+        letter-spacing:1.5px;
+
+    }
+
+
+    .airline{
+
+        font-size:11px;
+
+        letter-spacing:2px;
+
+        margin-top:7px;
+
+    }
+
+
+    .years{
+
+        font-size:11px;
+
+        padding:6px 12px;
+
+        margin-top:9px;
+
+    }
+
+
+    /* BODY */
+
+    .ticket-body{
+
+        padding:
+        17px
+        17px
+        20px;
+
+    }
+
+
+    /* ROUTE */
+
+    .route{
+
+        margin-bottom:16px;
+
+    }
+
+
+    .city{
+
+        font-size:22px;
+
+    }
+
+
+    .city small{
+
+        font-size:8px;
+
+        margin-top:2px;
+
+    }
+
+
+    .planeIcon{
+
+        font-size:24px;
+
+    }
+
+
+    /* DETAILS */
+
+    .label{
+
+        font-size:9px;
+
+        margin-top:9px;
+
+        letter-spacing:1.3px;
+
+    }
+
+
+    .value{
+
+        font-size:14px;
+
+        padding-bottom:5px;
+
+    }
+
+
+    /* BUTTON */
+
+    button{
+
+        padding:12px;
+
+        margin-top:13px;
+
+        font-size:14px;
+
+        border-radius:14px;
+
+    }
+
+
+    .tapHint{
+
+        font-size:10px;
+
+        margin-top:7px;
+
+    }
+
+
+    /* PASSWORD */
+
+    #unlockSection{
+
+        margin-top:6px;
+
+    }
+
+
+    input{
+
+        padding:12px;
+
+        margin-top:6px;
+
+        font-size:15px;
+
+    }
+
+
+    /* BARCODE */
+
+    .barcode{
+
+        margin-top:17px;
+
+        height:38px;
+
+    }
+
+
+    .barcodeText{
+
+        font-size:6px;
+
+        letter-spacing:2px;
+
+    }
+
+
+    /* SURPRISE */
+
+    .contentBox{
+
+        padding:
+        23px
+        18px;
+
+        border-radius:22px;
+
+    }
+
+
+    .contentBox h1{
+
+        font-size:25px;
+
+    }
+
+
+    .contentBox h2{
+
+        font-size:17px;
+
+    }
+
+
+    .contentBox p{
+
+        font-size:14px;
+
+    }
+
+
+    .surprisePhoto{
+
+        margin-top:15px;
+
+        max-height:400px;
+
+    }
+
+
+}
+
+
+/* EXTRA SMALL PHONES */
+
+@media(max-width:370px){
+
+    .ticket-top h1{
+
+        font-size:21px;
+
+    }
+
+
+    .city{
+
+        font-size:19px;
+
+    }
+
+
+    .value{
+
+        font-size:13px;
+
+    }
+
+
+    .ticket-body{
+
+        padding:15px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     AUDIO
+========================= -->
+
+<audio
+    id="boardingSound"
+    preload="auto"
+    loop
+>
+
+    <source
+        src="boarding.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+<audio
+    id="airportAmbient"
+    preload="auto"
+    loop
+>
+
+    <source
+        src="airport.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+
+<div class="container">
+
+
+<!-- ==================================================
+     RETIREMENT BOARDING PASS
+================================================== -->
+
+<div
+    class="boarding-pass"
+    id="passwordBox"
+>
+
+
+    <!-- HEADER -->
+
+    <div class="ticket-top">
+
+        <h1>
+            ✈️ RETIREMENT AIRWAYS
+        </h1>
+
+
+        <p class="airline">
+            THE 34-YEAR FLIGHT IS COMPLETE
+        </p>
+
+
+        <div class="years">
+            34 YEARS OF SERVICE 🏆
+        </div>
+
+    </div>
+
+
+
+    <!-- BODY -->
+
+    <div class="ticket-body">
+
+
+        <!-- ROUTE -->
+
+        <div class="route">
+
+            <div class="city">
+
+                WORK
+
+                <small>
+                    DEPARTURE
+                </small>
+
+            </div>
+
+
+            <div class="planeIcon">
+                ✈️
+            </div>
+
+
+            <div class="city">
+
+                RETIREMENT
+
+                <small>
+                    DESTINATION
+                </small>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PASSENGER -->
+
+        <div class="label">
+            PASSENGER
+        </div>
+
+        <div class="value">
+            OUR RETIREMENT QUEEN 👑
+        </div>
+
+
+
+        <!-- FLIGHT -->
+
+        <div class="label">
+            FLIGHT
+        </div>
+
+        <div class="value">
+            RET-0034
+        </div>
+
+
+
+        <!-- GATE -->
+
+        <div class="label">
+            GATE
+        </div>
+
+        <div class="value">
+            GATE R-34
+        </div>
+
+
+
+        <!-- DESTINATION -->
+
+        <div class="label">
+            DESTINATION
+        </div>
+
+        <div class="value">
+            REST • RELAXATION • FREEDOM
+        </div>
+
+
+
+        <!-- STATUS -->
+
+        <div class="label">
+            FLIGHT STATUS
+        </div>
+
+        <div class="value">
+            ✈️ DEPARTING THE 9–5 — NEVER RETURNING
+        </div>
+
+
+
+        <!-- BOARDING BUTTON -->
+
+        <button
+            class="boardBtn"
+            onclick="startBoarding()"
+        >
+
+            🎫 Check In For Retirement
+
+        </button>
+
+
+        <p
+            class="tapHint"
+            id="tapHint"
+        >
+
+            Tap above to reveal your secret password 🔐
+
+        </p>
+
+
+
+        <!-- PASSWORD -->
+
+        <div id="unlockSection">
+
+
+            <div class="label">
+                SECRET BOARDING PASSWORD
+            </div>
+
+
+            <input
+                type="password"
+                id="passwordInput"
+                placeholder="Enter your secret password"
+                autocomplete="off"
+            >
+
+
+            <button
+                class="unlockBtn"
+                onclick="unlockSurprise()"
+            >
+
+                🔓 Unlock Your Retirement Surprise
+
+            </button>
+
+
+            <p id="error"></p>
+
+
+        </div>
+
+
+
+        <!-- BARCODE -->
+
+        <div class="barcode"></div>
+
+
+        <div class="barcodeText">
+            RETIREMENT • 34 YEARS • FREEDOM
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     UNLOCKED SURPRISE
+================================================== -->
+
+<div
+    class="contentBox"
+    id="contentBox"
+>
+
+
+    <div class="glow"></div>
+
+
+    <h1>
+        🎉 WELCOME TO RETIREMENT! 🎉
+    </h1>
+
+
+    <h2>
+        YOUR 34-YEAR JOURNEY HAS LANDED ✈️
+    </h2>
+
+
+    <div class="retiredStamp">
+        OFFICIALLY RETIRED
+    </div>
+
+
+    <p>
+        After 34 incredible years of
+        hard work, dedication and service...
+    </p>
+
+
+    <p>
+        Your new assignment is officially:
+        <strong>
+            REST, RELAXATION & ENJOYING LIFE!
+        </strong>
+        ❤️
+    </p>
+
+
+
+    <!-- PHOTO -->
+
+    <img
+        src="retirement-photo.jpg"
+        alt="Retirement Celebration"
+        class="surprisePhoto"
+    >
+
+
+
+    <!-- VOICE RECORDING -->
+
+    <div class="voiceMessage">
+
+        <div class="voiceTitle">
+            🎙️ A SPECIAL MESSAGE FOR YOU
+        </div>
+
+
+        <audio
+            id="retirementVoice"
+            controls
+            preload="auto"
+        >
+
+            <source
+                src="retirement-voice.mp3"
+                type="audio/mpeg"
+            >
+
+            Your browser does not support
+            audio playback.
+
+        </audio>
+
+    </div>
+
+
+
+    <!-- BRAND -->
+
+    <div class="brand">
+
+        Created by
+        <span>
+            Limitless Graphics by Thea
+        </span>
+
+    </div>
+
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+/* ==================================================
+   PASSWORD
+================================================== */
+
+const correctPassword = "Stores";
+
+
+/* ==================================================
+   AUDIO
+================================================== */
+
+const boardingSound =
+document.getElementById(
+    "boardingSound"
+);
+
+
+const airportAmbient =
+document.getElementById(
+    "airportAmbient"
+);
+
+
+const retirementVoice =
+document.getElementById(
+    "retirementVoice"
+);
+
+
+/* ==================================================
+   BEGIN BOARDING
+================================================== */
+
+function startBoarding(){
+
+    /*
+       Start sound after user interaction.
+    */
+
+    boardingSound.currentTime = 0;
+
+    boardingSound.play().catch(() => {});
+
+
+    /*
+       Show password.
+    */
+
+    const unlockSection =
+    document.getElementById(
+        "unlockSection"
+    );
+
+    unlockSection.style.display = "block";
+
+
+    /*
+       Hide hint.
+    */
+
+    document.getElementById(
+        "tapHint"
+    ).style.display = "none";
+
+
+    /*
+       Automatically move the phone
+       down to the password field.
+    */
+
+    setTimeout(() => {
+
+        document
+        .getElementById("passwordInput")
+        .scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+
+    },150);
+
+}
+
+
+/* ==================================================
+   UNLOCK SURPRISE
+================================================== */
+
+function unlockSurprise(){
+
+    const input =
+    document.getElementById(
+        "passwordInput"
+    ).value.trim();
+
+
+    const error =
+    document.getElementById(
+        "error"
+    );
+
+
+    /* =========================
+       CORRECT PASSWORD
+    ========================= */
+
+    if(input === correctPassword){
+
+        /*
+           Stop boarding sound.
+        */
+
+        boardingSound.pause();
+
+        boardingSound.currentTime = 0;
+
+
+        /*
+           Optional ambient sound.
+        */
+
+        airportAmbient.volume = 0.25;
+
+        airportAmbient.play().catch(() => {});
+
+
+        /*
+           Hide boarding pass.
+        */
+
+        document.getElementById(
+            "passwordBox"
+        ).style.display = "none";
+
+
+        /*
+           Show surprise.
+        */
+
+        document.getElementById(
+            "contentBox"
+        ).style.display = "block";
+
+
+        /*
+           Scroll back to the top
+           of the surprise.
+        */
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+
+        /*
+           Automatically play voice.
+        */
+
+        retirementVoice.currentTime = 0;
+
+        retirementVoice.play().catch(() => {
+
+            console.log(
+                "Browser blocked autoplay. Press play on the voice message."
+            );
+
+        });
+
+
+        error.innerText = "";
+
+    }
+
+
+    /* =========================
+       WRONG PASSWORD
+    ========================= */
+
+    else{
+
+        error.innerText =
+        "❌ Wrong password. Try again!";
+
+    }
+
+}
+
+
+/* ==================================================
+   ENTER KEY
+================================================== */
+
+document
+.getElementById("passwordInput")
+.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            unlockSurprise();
+
+        }
+
+    }
+);
+
+
+/* ==================================================
+   CLOUDS
+================================================== */
+
+function createCloud(){
+
+    const cloud =
+    document.createElement("div");
+
+
+    cloud.className = "cloud";
+
+    cloud.innerHTML = "☁️";
+
+
+    cloud.style.top =
+    Math.random() * 90 + "vh";
+
+
+    cloud.style.animationDuration =
+    12 + Math.random() * 10 + "s";
+
+
+    document.body.appendChild(cloud);
+
+
+    setTimeout(() => {
+
+        cloud.remove();
+
+    },22000);
+
+}
+
+
+/* ==================================================
+   PLANES
+================================================== */
+
+function createPlane(){
+
+    const plane =
+    document.createElement("div");
+
+
+    plane.className = "plane";
+
+    plane.innerHTML = "✈️";
+
+
+    plane.style.top =
+    Math.random() * 80 + "vh";
+
+
+    plane.style.animationDuration =
+    7 + Math.random() * 5 + "s";
+
+
+    document.body.appendChild(plane);
+
+
+    setTimeout(() => {
+
+        plane.remove();
+
+    },14000);
+
+}
+
+
+/* ==================================================
+   ANIMATIONS
+================================================== */
+
+setInterval(
+    createCloud,
+    1800
+);
+
+
+setInterval(
+    createPlane,
+    4000
+);
+
+</script>
+
+</body>
+</html>
